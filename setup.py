@@ -16,14 +16,15 @@ def read_me():
 def install_requires():
     with open("requirements.txt", "r", encoding="utf-8") as f:
         req = f.read().splitlines()
+        # Replace torch==2.1.1 with a more flexible or compatible version if needed
+        req = [line.replace("torch==2.1.1", "torch>=2.1.1") for line in req]
         return req
 
 
 setup(
     name="SpeechTranslate",
     version=version(),
-    description="A realtime speech transcription and translation application using Whisper OpenAI and free translation API."
-    " Interface made using Tkinter. Code written fully in Python.",
+    description="A realtime speech transcription and translation application using Whisper OpenAI and a free translation API. Interface made using Tkinter. Code written fully in Python.",
     long_description=read_me(),
     long_description_content_type="text/markdown",
     python_requires=">=3.8",
